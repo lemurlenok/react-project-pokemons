@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/store';
 import { fetchPokemons, setPage } from '../features/pokemons/pokemonsSlice';
 import { RootState } from '../store/store';
+import { IPokemon } from "../typse";
+import styles from './PokemonList.module.css';
+import { getPokemonImageUrl } from '../urls/pokemonUrls';
+
 const PokemonList: React.FC = () => {
     const dispatch = useAppDispatch();
     const pokemons = useAppSelector((state: RootState) => state.pokemons.pokemons);
@@ -36,14 +40,18 @@ const PokemonList: React.FC = () => {
 
     return (
         <div>
-            <ul>
-                {pokemons.map((pokemon) => (
-                    <li key={pokemon.name}>
+            <div className={styles.pokemonGrid}>
+                {pokemons.map((pokemon: IPokemon) => (
+                    <div key={pokemon.id} className={styles.pokemonCard}>
                         <h3>{pokemon.name}</h3>
-                        <img src={`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`} alt={pokemon.name} />
-                    </li>
+                        <img
+                            src={getPokemonImageUrl(pokemon.id)}
+                            alt={pokemon.name}
+                            className={styles.pokemonImage}
+                        />
+                    </div>
                 ))}
-            </ul>
+            </div>
             <button onClick={handlePrevPage} disabled={page === 1}>Previous</button>
             <button onClick={handleNextPage} disabled={page === totalPages}>Next</button>
         </div>
