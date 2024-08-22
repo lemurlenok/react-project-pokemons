@@ -1,0 +1,26 @@
+.header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Відступ між пунктами меню */
+}
+
+.navItem {
+    margin: 0;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navLink:hover {
+    color: #0056b3;
+}
