@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {Provider} from "react-redux";
 import {RouterProvider} from "react-router-dom";
-import {index} from "../src/router/router";
+import {router} from "./router/router";
 import {store} from "./redux/store";
 
 const root = ReactDOM.createRoot(
@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
 
     <Provider store={store}>
-        <RouterProvider router={index}/>
+        <RouterProvider router={router}/>
     </Provider>
 
 );

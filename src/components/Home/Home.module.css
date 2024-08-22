@@ -1,0 +1,8 @@
+.homePage {
+    background-image: url('https://assets-prd.ignimgs.com/2024/02/02/all-pokemon-games-switch-1706832326621.png?width=1920');
+    background-size: cover; /* Заливка фону по всій площі */
+    background-position: center; /* Центрування фону */
+    background-repeat: no-repeat; /* Без повторення фону */
+    min-height: 100vh; /* Висота на всю видиму область */
+    color: white; /* Колір тексту для кращої видимості */
+}
