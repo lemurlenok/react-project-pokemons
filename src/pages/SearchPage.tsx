@@ -22,7 +22,7 @@ const SearchPage: React.FC = () => {
                         abilities: data.abilities,
                         stats: data.stats,
                         types: data.types,
-                        forms: data.forms || [], // Обробка випадків, коли forms може бути відсутнім
+                        forms: data.forms || [],
                         imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`,
                         height: data.height,
                         weight: data.weight,

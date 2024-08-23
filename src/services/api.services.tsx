@@ -16,10 +16,9 @@ export const PokemonServices = {
             }
         });
 
-        // Додаємо URL зображення до результатів
         const results = response.data.results.map((pokemon: any) => ({
             ...pokemon,
-            id: pokemon.url.split('/')[6], // Отримання ID з URL
+            id: pokemon.url.split('/')[6],
             imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split('/')[6]}.png`
         }));
 
@@ -34,7 +33,6 @@ export const PokemonServices = {
 
         const data = response.data;
 
-        // Перетворюємо дані на тип IPokemonDetail
         const pokemonDetail: IPokemonDetail = {
             id: data.id,
             name: data.name,

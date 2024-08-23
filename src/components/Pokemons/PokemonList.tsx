@@ -1,7 +1,7 @@
 import React from 'react';
 import PokemonCard from '../../components/Pokemon/PokemonCard';
 import { IPokemon } from '../../models/IPokemon';
-import styles from './PokemonList.module.css'; // Додайте цей рядок
+import styles from './PokemonList.module.css';
 
 interface PokemonListProps {
     pokemons: IPokemon[];

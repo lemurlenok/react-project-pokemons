@@ -1,10 +1,10 @@
 .flexContainer {
     display: flex;
-    flex-wrap: wrap; /* Дозволяє обтікання елементів */
-    gap: 16px; /* Відстань між картками */
-    padding: 16px; /* Внутрішні відступи контейнера */
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
 }
 
 .flexContainer > * {
-    flex: 1 1 calc(20% - 16px); /* 5 елементів в рядку з урахуванням відстані між ними */
+    flex: 1 1 calc(20% - 16px);
 }

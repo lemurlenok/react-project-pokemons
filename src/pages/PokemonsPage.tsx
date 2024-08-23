@@ -21,11 +21,11 @@ const PokemonsContainer = () => {
 
     const onCardClick = (pokemon: IPokemon) => {
         console.log('Clicked Pokemon:', pokemon);
-        navigate(`/pokemon/${pokemon.id}`); // Переход на сторінку покемона
+        navigate(`/pokemon/${pokemon.id}`);
     };
 
     const onAddToFavorites = (pokemon: IPokemon) => {
-        dispatch(pokemonAction.addFavorite(pokemon)); // Додавання до улюблених
+        dispatch(pokemonAction.addFavorite(pokemon));
     };
 
     return (

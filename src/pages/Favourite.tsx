@@ -27,7 +27,7 @@ const Favourite: React.FC = () => {
                     <PokemonCard
                         key={pokemon.id}
                         pokemon={pokemon}
-                        onClick={() => {} /* Додайте необхідну функціональність тут */}
+                        onClick={() => {} }
                     />
                 ))}
             </div>

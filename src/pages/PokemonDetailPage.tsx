@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IPokemonDetail } from '../models/IPokemonDetail';
-import { PokemonServices } from '../services/api.services'; // Переконайтеся, що імпорт правильний
+import { PokemonServices } from '../services/api.services';
 import styles from './PokemonDetailPage.module.css';
 
 const PokemonDetailPage: React.FC = () => {
-    const { id } = useParams<{ id: string | undefined }>(); // Зміна типу на string | undefined
+    const { id } = useParams<{ id: string | undefined }>();
     const [pokemon, setPokemon] = useState<IPokemonDetail | null>(null);
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
     useEffect(() => {
-        if (!id) return; // Додаємо перевірку на випадок, якщо id є undefined
+        if (!id) return;
 
         const fetchPokemon = async () => {
             try {
-                const data = await PokemonServices.getPokemonById(id); // Переконайтеся, що id не undefined
+                const data = await PokemonServices.getPokemonById(id);
                 setPokemon(data);
 
-                // Перевірка, чи є покемон у списку улюблених (приклад, якщо є метод перевірки)
+
                 const favoritePokemons = JSON.parse(localStorage.getItem('favoritePokemons') || '[]');
                 const isFavoritePokemon = favoritePokemons.some((fav: IPokemonDetail) => fav.id === data.id);
                 setIsFavorite(isFavoritePokemon);
@@ -34,11 +34,9 @@ const PokemonDetailPage: React.FC = () => {
 
         const favoritePokemons = JSON.parse(localStorage.getItem('favoritePokemons') || '[]');
         if (isFavorite) {
-            // Видалити з улюблених
             const updatedFavorites = favoritePokemons.filter((fav: IPokemonDetail) => fav.id !== pokemon.id);
             localStorage.setItem('favoritePokemons', JSON.stringify(updatedFavorites));
         } else {
-            // Додати до улюблених
             favoritePokemons.push(pokemon);
             localStorage.setItem('favoritePokemons', JSON.stringify(favoritePokemons));
         }

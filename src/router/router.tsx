@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
             { path: 'pokemons', element: <Pokemons /> },
             { path: 'pokemon/:id', element: <PokemonDetailPage /> },
             { path: 'search', element: <SearchPage /> },
-            { path: 'favourite', element: <Favourite /> } // Переконайтеся, що Favourite не потребує пропсів
+            { path: 'favourite', element: <Favourite /> }
         ]
     }
 ]);
