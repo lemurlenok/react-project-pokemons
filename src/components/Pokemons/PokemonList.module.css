@@ -1,29 +1,10 @@
-.pokemonGrid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Розташувати 5 колонок */
-    gap: 16px; /* Відстань між елементами */
-    justify-content: center; /* Центрувати контент */
-}
-
-.pokemonCard {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-    background-color: #fff;
-    width: calc(20% - 16px); /* 5 елементів в ряд, з урахуванням відстані */
-    box-sizing: border-box;
-}
-
-.pokemonImage {
-    max-width: 100%;
-    height: auto;
-}
-.pokemon-flex-container {
+.flexContainer {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Центрувати контент */
-    gap: 16px; /* Відстань між елементами */
+    flex-wrap: wrap; /* Дозволяє обтікання елементів */
+    gap: 16px; /* Відстань між картками */
+    padding: 16px; /* Внутрішні відступи контейнера */
 }
 
-
+.flexContainer > * {
+    flex: 1 1 calc(20% - 16px); /* 5 елементів в рядку з урахуванням відстані між ними */
+}

@@ -4,7 +4,7 @@ import styles from './Home.module.css'
 const Home = () => {
     return (
         <div className={styles.homePage}>
-            <h1>Welcome to the Pokémon App</h1>
+            <h1> Pokémon </h1>
         </div>
     );
 };

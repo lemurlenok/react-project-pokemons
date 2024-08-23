@@ -1,23 +1,21 @@
 import React from 'react';
-import PokemonCard from '../Pokemon/PokemonCard';
+import PokemonCard from '../../components/Pokemon/PokemonCard';
 import { IPokemon } from '../../models/IPokemon';
-import styles from './PokemonList.module.css';
+import styles from './PokemonList.module.css'; // Додайте цей рядок
 
 interface PokemonListProps {
     pokemons: IPokemon[];
     onCardClick: (pokemon: IPokemon) => void;
-    onAddToFavorites: (pokemon: IPokemon) => void; // Додано пропс для обробки додавання до улюблених
 }
 
-const PokemonList: React.FC<PokemonListProps> = ({ pokemons, onCardClick, onAddToFavorites }) => {
+const PokemonList: React.FC<PokemonListProps> = ({ pokemons, onCardClick }) => {
     return (
-        <div className={styles.pokemonGrid}>
-            {pokemons.map((pokemon) => (
+        <div className={styles.flexContainer}>
+            {pokemons.map(pokemon => (
                 <PokemonCard
-                    key={pokemon.id} // Використовуйте унікальний ідентифікатор
+                    key={pokemon.id}
                     pokemon={pokemon}
                     onClick={onCardClick}
-                    onAddToFavorites={onAddToFavorites} // Передача обробника додавання до улюблених
                 />
             ))}
         </div>

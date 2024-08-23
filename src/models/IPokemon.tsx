@@ -1,11 +1,17 @@
 export interface IPokemon {
     id: number;
     name: string;
-    imageUrl?: string; // Додано для збереження URL зображення
+    abilities: { ability: { name: string } }[];
+    stats: { stat: { name: string }; base_stat: number }[];
+    types: { type: { name: string } }[];
+    forms: { name: string }[];
+    imageUrl: string;
+    height: number;
+    weight: number;
+    base_experience: number;
 }
 
-export interface IPokemonResponse {
-    results: IPokemon[];
-    next: string | null;
-    previous: string | null;
+export interface Stat {
+    name: string;
+    value: number;
 }

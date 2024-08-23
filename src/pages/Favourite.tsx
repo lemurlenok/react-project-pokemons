@@ -1,30 +1,33 @@
-import React from 'react';
-import { useAppSelector } from "../redux/store";
-import PokemonCard from "../components/Pokemon/PokemonCard";
-import styles from './FavoritesPage.module.css';
-import {IPokemon} from "../models/IPokemon";
+import React, { useEffect, useState } from 'react';
+import { IPokemonDetail } from '../models/IPokemonDetail';
+import PokemonCard from '../components/Pokemon/PokemonCard';
+import styles from './Favorites.module.css';
 
-const Favourite = () => {
-    const { favoritePokemons } = useAppSelector(state => state.PokemonSlice);
+const Favourite: React.FC = () => {
+    const [favoritePokemons, setFavoritePokemons] = useState<IPokemonDetail[]>([]);
 
-    const handleCardClick = (pokemon: IPokemon) => {
-        // Логіка при кліку на картку улюбленого покемона
-    };
+    useEffect(() => {
+        const fetchFavorites = () => {
+            const storedFavorites = JSON.parse(localStorage.getItem('favoritePokemons') || '[]');
+            setFavoritePokemons(storedFavorites);
+        };
 
-    const handleAddToFavorites = (pokemon: IPokemon) => {
-        // Додавання до улюблених не потрібне на цій сторінці
-    };
+        fetchFavorites();
+    }, []);
+
+    if (favoritePokemons.length === 0) {
+        return <div className={styles.noFavorites}>No favorite Pokémon yet!</div>;
+    }
 
     return (
-        <div>
-            <h2>Favorite Pokémon</h2>
+        <div className={styles.container}>
+            <h1 className={styles.title}>Favorite Pokémon</h1>
             <div className={styles.pokemonGrid}>
                 {favoritePokemons.map(pokemon => (
                     <PokemonCard
                         key={pokemon.id}
                         pokemon={pokemon}
-                        onClick={handleCardClick}
-                        onAddToFavorites={handleAddToFavorites} // Передача обробника
+                        onClick={() => {} /* Додайте необхідну функціональність тут */}
                     />
                 ))}
             </div>

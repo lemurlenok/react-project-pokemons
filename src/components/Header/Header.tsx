@@ -13,9 +13,6 @@ const Header: React.FC = () => {
                     <Link to="/pokemons" className={styles.navLink}>All Pokemons</Link>
                 </div>
                 <div className={styles.navItem}>
-                    <Link to="/search" className={styles.navLink}>Search Pokémon</Link>
-                </div>
-                <div className={styles.navItem}>
                     <Link to="/favourite" className={styles.navLink}>Favourite Pokémon</Link>
                 </div>
             </nav>

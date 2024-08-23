@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from "../redux/store";
 import { pokemonAction } from "../redux/slices/pokemonsSlice";
@@ -32,7 +33,7 @@ const PokemonsContainer = () => {
             <PokemonList
                 pokemons={pokemons}
                 onCardClick={onCardClick}
-                onAddToFavorites={onAddToFavorites} // Передача обробника додавання до улюблених
+
             />
             <hr/>
             <Pagination prev={previous} next={next}/>
