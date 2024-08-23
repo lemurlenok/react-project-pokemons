@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import styles from './Pagination.module.css'
 
 interface PaginationProps {
     prev: string | null;
@@ -23,14 +24,16 @@ const Pagination: FC<PaginationProps> = ({ prev, next }) => {
     };
 
     return (
-        <div>
+        <div className={styles.paginationContainer}>
             <button
+                className={styles.button}
                 disabled={!prev}
                 onClick={() => handlePageChange('prev')}
             >
                 Prev
             </button>
             <button
+                className={styles.button}
                 disabled={!next}
                 onClick={() => handlePageChange('next')}
             >
@@ -39,5 +42,6 @@ const Pagination: FC<PaginationProps> = ({ prev, next }) => {
         </div>
     );
 };
+
 
 export default Pagination;
